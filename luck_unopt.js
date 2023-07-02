@@ -12,12 +12,13 @@ const ys = Array.from({ length: N }, (_, n) => easeInQuad(n / N))
 let tBee = 0
 
 const cloverPic = {
-    value: 0x15f762f0734dbbd8256072e4b4d420cn,
-    width: 9,
-    height: 9,
-    cardinality: 3,
+    value: 0x6400159501a6691feafd1fffd01ae901bff91bf7f91f47d014050n,
+    width: 11,
+    height: 10,
+    cardinality: 4,
     palette: [
         ,
+        0x333c57,
         0x38b764,
         0xa7f070,
     ],
@@ -63,14 +64,14 @@ function render(tCurrent) {
     let t = tCurrent - tPrev
     tPrev = tCurrent
 
-    c.fillStyle = '#333c57'
+    c.fillStyle = '#a7f070'
     c.fillRect(0, 0, a.width, a.height)
 
     for (let n = 0; n < N; ++n) {
         if ((xs[n] -= 0.0005 * t * (0.1 + ys[n] * 0.9)) < 0) {
             xs[n] += 1
         }
-        paint(cloverPic, 0 | xs[n] * (a.width + 120) - 60, 0 | ys[n] * (a.height - 60) + 10, 0 | 2 + 5 * ys[n])
+        paint(cloverPic, 0 | xs[n] * (a.width + 120) - 60, 0 | ys[n] * (a.height - 60) + 10, 0 | 2 + 4 * ys[n])
     }
 
     tBee += 0.001 * t
