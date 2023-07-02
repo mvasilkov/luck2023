@@ -1,13 +1,9 @@
 'use strict'
 
-function easeInQuad(t) {
-    return t * t;
-}
-
 const N = 100
 
 const xs = Array.from({ length: N }, () => Math.random())
-const ys = Array.from({ length: N }, (_, n) => easeInQuad(n / N))
+const ys = Array.from({ length: N }, (_, n) => (n / N) ** 2)
 
 let tBee = 0
 
